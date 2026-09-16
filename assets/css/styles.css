@@ -1,0 +1,2120 @@
+/* ==========================================================================
+   ALMEIDA CONFESSOR ADVOCACIA & CONSULTORIA JURÍDICA
+   Design System & Estilos - Etapa 01 (Header, Hero & Faixa de Confiança)
+   ========================================================================== */
+
+:root {
+  /* Cores Escuras Nobres */
+  --color-bg-dark: #070A0F;
+  --color-bg-header: rgba(7, 10, 15, 0.96);
+  --color-hero-deep-navy: #112238;
+  
+  /* Paleta Dourada Refinada (conforme Mockup) */
+  --color-gold: #BD9A5F;
+  --color-gold-hover: #CCA86D;
+  --color-gold-text: #C5A46C;
+  --color-gold-border: rgba(189, 154, 95, 0.3);
+
+  /* Faixa de Confiança */
+  --color-trust-bg: #F4F1EA;
+  --color-trust-border: #E1DAD0;
+  --color-trust-text: #1E232B;
+  --color-trust-icon: #B59154;
+
+  /* Tipografia */
+  --color-text-light: #FFFFFF;
+  --color-text-muted: #BAC4CE;
+  --color-text-nav: #EDE8DF;
+
+  /* Fontes Oficiais */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Dimensões & Animações */
+  --container-max-width: 1280px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* Reset Global */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 1000;
+  transition: background-color var(--transition-normal), 
+              backdrop-filter var(--transition-normal), 
+              box-shadow var(--transition-normal),
+              border-color var(--transition-normal);
+}
+
+.site-header.scrolled {
+  position: fixed;
+  background-color: var(--color-bg-header);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.header-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Logomarca Oficial */
+.header-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  outline: none;
+  flex-shrink: 0;
+}
+
+.header-logo-link:focus-visible {
+  outline: 2px solid var(--color-gold);
+  border-radius: 4px;
+}
+
+.header-logo {
+  height: 68px;
+  width: auto;
+  max-width: 270px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Navegação Desktop */
+.desktop-nav {
+  display: block;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--color-text-nav);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  position: relative;
+  padding: 8px 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-text-light);
+}
+
+.nav-link.active {
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-gold);
+  border-radius: 1px;
+}
+
+/* Botões Globais */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-gold-hover);
+  outline-offset: 3px;
+}
+
+/* Botão WhatsApp */
+.btn-whatsapp {
+  background-color: var(--color-gold);
+  color: #FFFFFF;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 6px;
+  letter-spacing: 0.015em;
+  flex-shrink: 0;
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--color-gold-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(189, 154, 95, 0.35);
+}
+
+.icon-whatsapp {
+  flex-shrink: 0;
+}
+
+/* Botão Mobile Hambúrguer */
+.mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 44px;
+  height: 44px;
+  outline: none;
+  flex-shrink: 0;
+}
+
+.mobile-toggle:focus-visible {
+  outline: 2px solid var(--color-gold);
+  border-radius: 4px;
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-light);
+  border-radius: 2px;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+/* Drawer Menu Mobile */
+.mobile-nav {
+  display: none;
+  background-color: #070A0F;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 24px 32px;
+}
+
+.mobile-nav.open {
+  display: block;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.mobile-nav-link {
+  color: var(--color-text-nav);
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link:hover {
+  color: var(--color-gold);
+}
+
+.btn-block {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  background-color: #070A0F;
+  overflow: hidden;
+  min-height: 640px;
+}
+
+/* Camada atmosférica de biblioteca jurídica em sombras */
+.hero-bg-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, 
+      rgba(7, 10, 15, 0.86) 0%, 
+      rgba(7, 10, 15, 0.88) 38%, 
+      rgba(12, 22, 36, 0.94) 64%, 
+      rgba(17, 34, 56, 0.98) 100%
+    ),
+    url('../images/hero/hero-bg.jpg') no-repeat left center / cover;
+  z-index: 1;
+}
+
+.hero-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 108px 32px 0 32px;
+  min-height: 620px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: end;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Coluna de Texto */
+.hero-content {
+  padding-bottom: 56px;
+  max-width: 520px;
+  min-width: 0;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3.4rem, 5.2vw, 4.75rem);
+  font-weight: 600;
+  line-height: 1.04;
+  color: var(--color-text-light);
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+  word-break: break-word;
+}
+
+.hero-title-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-gold-text);
+  letter-spacing: -0.01em;
+}
+
+.hero-description {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem; /* 17px */
+  font-weight: 400;
+  line-height: 1.62;
+  color: var(--color-text-muted);
+  max-width: 440px;
+  margin-bottom: 34px;
+  word-break: break-word;
+}
+
+/* Botão Hero */
+.btn-hero {
+  background-color: var(--color-gold);
+  color: #FFFFFF;
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: 6px;
+  box-shadow: 0 4px 18px rgba(189, 154, 95, 0.25);
+}
+
+.btn-hero:hover {
+  background-color: var(--color-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(189, 154, 95, 0.38);
+}
+
+.icon-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.btn-hero:hover .icon-arrow {
+  transform: translateX(4px);
+}
+
+/* Coluna de Fotografia dos Sócios */
+.hero-visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+  min-width: 0;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-bottom: 0;
+  min-width: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  max-height: 550px;
+  display: block;
+  object-fit: contain;
+  object-position: bottom right;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45));
+}
+
+/* ==========================================================================
+   FAIXA DE CONFIANÇA / DIFERENCIAIS
+   ========================================================================== */
+
+.trust-bar-section {
+  background-color: var(--color-trust-bg);
+  border-top: 1px solid var(--color-trust-border);
+  border-bottom: 1px solid var(--color-trust-border);
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.trust-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+}
+
+.trust-item {
+  padding: 32px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  border-right: 1px solid var(--color-trust-border);
+  transition: background-color var(--transition-fast);
+  min-width: 0;
+}
+
+.trust-item:last-child {
+  border-right: none;
+}
+
+.trust-item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.trust-icon-wrapper {
+  color: var(--color-trust-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast);
+}
+
+.trust-icon {
+  width: 38px;
+  height: 38px;
+}
+
+.trust-item:hover .trust-icon-wrapper {
+  transform: translateY(-2px);
+}
+
+.trust-label {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  color: var(--color-trust-text);
+  text-transform: uppercase;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   SEÇÃO 02: O ESCRITÓRIO
+   ========================================================================== */
+
+.about-section {
+  position: relative;
+  background-color: #070A0F;
+  padding: 105px 0 115px 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Full-bleed right backdrop with Lady Justice (Themis) */
+.about-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.about-backdrop-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 85% 15%;
+  opacity: 0.46;
+  filter: contrast(1.15) brightness(0.82);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 12%, rgba(0, 0, 0, 0.8) 42%, black 75%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 12%, rgba(0, 0, 0, 0.8) 42%, black 75%);
+}
+
+.about-backdrop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 35% 50%, rgba(7, 10, 15, 0.92) 0%, rgba(7, 10, 15, 0.35) 65%, transparent 100%),
+    linear-gradient(to bottom, 
+      #070A0F 0%, 
+      transparent 16%, 
+      transparent 82%, 
+      #070A0F 100%
+    ),
+    linear-gradient(to right, 
+      #070A0F 0%, 
+      rgba(7, 10, 15, 0.75) 20%, 
+      transparent 55%
+    );
+}
+
+.about-container {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 56px;
+}
+
+/* Coluna de Texto */
+.about-content {
+  max-width: 500px;
+}
+
+.section-eyebrow-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.section-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.eyebrow-line {
+  display: inline-block;
+  width: 135px;
+  height: 1px;
+  background-color: var(--color-gold);
+  opacity: 0.65;
+}
+
+.about-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.85rem, 4.3vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1.12;
+  color: #FFFFFF;
+  letter-spacing: -0.015em;
+  margin-bottom: 26px;
+}
+
+.about-text-body {
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 480px;
+}
+
+.about-text-body p {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem; /* 17px */
+  font-weight: 400;
+  line-height: 1.72;
+  color: #9DA6B6;
+}
+
+/* Botão Outline */
+.btn-outline {
+  background-color: rgba(7, 10, 15, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold-text);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 500;
+  padding: 13px 26px;
+  border-radius: 4px;
+  letter-spacing: 0.015em;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all var(--transition-fast);
+}
+
+.btn-outline:hover {
+  background-color: rgba(189, 154, 95, 0.15);
+  border-color: var(--color-gold-hover);
+  color: #F5E6C8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(189, 154, 95, 0.22);
+}
+
+.btn-outline:hover .icon-arrow {
+  transform: translateX(4px);
+}
+
+/* Coluna Visual: Logo AC Dourado */
+.about-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.about-mobile-themis {
+  display: none;
+}
+
+.about-emblem-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transform: translateY(-4px);
+}
+
+.about-logo-emblem {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.95)) drop-shadow(0 3px 8px rgba(0, 0, 0, 0.8));
+  transition: transform var(--transition-normal);
+}
+
+.about-visual:hover .about-logo-emblem {
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   SEÇÃO 03: ÁREAS DE ATUAÇÃO
+   ========================================================================== */
+
+.practices-section {
+  position: relative;
+  background-color: var(--color-trust-bg);
+  padding: 100px 0 115px 0;
+  border-bottom: 1px solid var(--color-trust-border);
+}
+
+.practices-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.practices-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 52px;
+  gap: 32px;
+}
+
+.practices-header-text {
+  max-width: 680px;
+}
+
+.practices-section .section-eyebrow {
+  color: #9B783A;
+  letter-spacing: 0.18em;
+}
+
+.practices-section .eyebrow-line {
+  background-color: #B59154;
+  opacity: 0.55;
+  width: 135px;
+}
+
+.practices-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 3.8vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #121824;
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+}
+
+.practices-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem; /* 17px */
+  font-weight: 400;
+  line-height: 1.62;
+  color: #5A6374;
+}
+
+.practices-header-action {
+  flex-shrink: 0;
+  padding-bottom: 6px;
+}
+
+.practices-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 600;
+  color: #1A212D;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  transition: all var(--transition-fast);
+}
+
+.practices-link:hover {
+  color: #9B783A;
+  text-underline-offset: 9px;
+}
+
+.practices-link:hover .icon-arrow {
+  transform: translateX(4px);
+}
+
+.practices-link .icon-arrow {
+  transition: transform var(--transition-fast);
+}
+
+/* Grid de Cards */
+.practices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Card Individual */
+.practice-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 34px 28px;
+  background-color: rgba(255, 255, 255, 0.48);
+  border: 1px solid #DFD7CC;
+  border-radius: 6px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.practice-card:hover {
+  background-color: #FFFFFF;
+  border-color: #BD9A5F;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(18, 24, 36, 0.06);
+}
+
+.practice-card-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  color: #B59154;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: transform 0.25s ease;
+}
+
+.practice-card:hover .practice-card-icon {
+  transform: translateY(-2px);
+}
+
+.practice-card-icon svg {
+  width: 38px;
+  height: 38px;
+}
+
+.practice-card-body {
+  flex: 1;
+}
+
+.practice-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.28rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #121824;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.practice-card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 400;
+  line-height: 1.58;
+  color: #5A6374;
+}
+
+/* ==========================================================================
+   SEÇÃO 04: EQUIPE
+   ========================================================================== */
+
+.team-section {
+  position: relative;
+  background-color: #070A0F;
+  background: radial-gradient(circle at 50% 0%, #0E1422 0%, #070A0F 75%);
+  padding: 110px 0 120px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.team-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.team-header {
+  margin-bottom: 56px;
+  max-width: 680px;
+}
+
+.team-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 3.8vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #FFFFFF;
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+}
+
+.team-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem; /* 17px */
+  font-weight: 400;
+  line-height: 1.65;
+  color: #9DA6B6;
+}
+
+/* Grid dos Profissionais */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+}
+
+/* Card Individual */
+.team-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(13, 17, 26, 0.6);
+  border: 1px solid rgba(189, 154, 95, 0.22);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(189, 154, 95, 0.55);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Foto do Profissional */
+.team-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  background: #090D15;
+}
+
+.team-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  filter: contrast(1.03) brightness(0.98);
+  transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-card-image {
+  transform: scale(1.025);
+}
+
+.team-card-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    transparent 60%, 
+    rgba(13, 17, 26, 0.75) 85%, 
+    rgba(13, 17, 26, 0.98) 100%
+  );
+  pointer-events: none;
+}
+
+/* Conteúdo Textual */
+.team-card-content {
+  padding: 32px 32px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.team-card-name {
+  font-family: var(--font-serif);
+  font-size: 1.75rem; /* 28px */
+  font-weight: 600;
+  line-height: 1.2;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.team-card-line {
+  display: inline-block;
+  width: 44px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.team-card-bio {
+  font-family: var(--font-sans);
+  font-size: 0.96875rem; /* 15.5px */
+  font-weight: 400;
+  line-height: 1.74;
+  color: #A4B0C2;
+}
+
+/* ==========================================================================
+   SEÇÃO 05: DESTAQUE INSTITUCIONAL
+   ========================================================================== */
+
+.statement-section {
+  position: relative;
+  background-color: #06090F;
+  background: radial-gradient(ellipse 75% 60% at 50% 50%, #0D1625 0%, #06090F 100%);
+  padding: 140px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Divisores Decorativos Sutis */
+.statement-divider-top,
+.statement-divider-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  pointer-events: none;
+}
+
+.statement-divider-top {
+  top: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(189, 154, 95, 0.28) 50%, transparent 100%);
+}
+
+.statement-divider-bottom {
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(189, 154, 95, 0.22) 50%, transparent 100%);
+}
+
+/* Aura Sutil Azul-Marinho de Profundidade */
+.statement-bg-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 680px;
+  height: 380px;
+  background: radial-gradient(ellipse at center, rgba(17, 34, 56, 0.45) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(50px);
+}
+
+.statement-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.statement-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Detalhe Dourado Discreto e Elemento Geométrico Sutil */
+.statement-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 38px;
+}
+
+.statement-accent-line {
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(189, 154, 95, 0.6));
+}
+
+.statement-accent-line:last-child {
+  background: linear-gradient(90deg, rgba(189, 154, 95, 0.6), transparent);
+}
+
+.statement-accent-diamond {
+  width: 5px;
+  height: 5px;
+  background-color: var(--color-gold);
+  transform: rotate(45deg);
+  opacity: 0.85;
+  box-shadow: 0 0 8px rgba(189, 154, 95, 0.4);
+}
+
+/* Título Principal Dominante */
+.statement-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5.5vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1.14;
+  color: #FFFFFF;
+  letter-spacing: -0.015em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.statement-title-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: #F3ECE2;
+}
+
+/* Linha Fina Separadora Minimalista */
+.statement-separator {
+  width: 54px;
+  height: 1px;
+  background: rgba(189, 154, 95, 0.45);
+  margin: 34px auto 30px auto;
+}
+
+/* Texto Secundário Editorial */
+.statement-text {
+  font-family: var(--font-sans);
+  font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.84;
+  color: #BAC7D5;
+  max-width: 660px;
+  margin: 0 auto;
+  text-wrap: pretty;
+  letter-spacing: 0.01em;
+}
+
+/* Animações Discretas de Scroll */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   SEÇÃO 06: CONTATO
+   ========================================================================== */
+
+.contact-section {
+  position: relative;
+  background-color: var(--color-trust-bg);
+  padding: 110px 0 120px 0;
+  border-top: 1px solid var(--color-trust-border);
+}
+
+.contact-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 72px;
+  align-items: start;
+}
+
+/* Coluna Esquerda: Informações Institucionais */
+.contact-info {
+  max-width: 520px;
+}
+
+.contact-section .section-eyebrow {
+  color: #9B783A;
+  letter-spacing: 0.18em;
+}
+
+.contact-section .eyebrow-line {
+  background-color: #B59154;
+  opacity: 0.55;
+  width: 120px;
+}
+
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4.2vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #121824;
+  letter-spacing: -0.015em;
+  margin-bottom: 20px;
+}
+
+.contact-description {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.76;
+  color: #4A5568;
+  margin-bottom: 28px;
+}
+
+.contact-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: #EAE5DB;
+  border-radius: 20px;
+  font-size: 0.84375rem;
+  font-weight: 500;
+  color: #4A5568;
+  border: 1px solid rgba(181, 145, 84, 0.25);
+}
+
+.contact-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #9B783A;
+}
+
+/* Coluna Direita: Canais e Localização */
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-trust-border);
+  border-radius: 8px;
+  padding: 22px 26px;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  box-shadow: 0 2px 10px rgba(18, 24, 36, 0.03);
+  position: relative;
+}
+
+.contact-card-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.contact-card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #F8F5EE;
+  border: 1px solid rgba(189, 154, 95, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9B783A;
+  flex-shrink: 0;
+}
+
+.contact-card-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-card-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8C7355;
+  margin-bottom: 3px;
+}
+
+.contact-card-value {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #121824;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-card-link:hover {
+  color: #9B783A;
+}
+
+/* Card WhatsApp */
+.contact-card-whatsapp {
+  border-left: 3px solid #9B783A;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.btn-contact-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #0E1624;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 13px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid rgba(189, 154, 95, 0.35);
+  transition: all var(--transition-normal);
+  width: 100%;
+}
+
+.btn-contact-whatsapp:hover {
+  background-color: var(--color-gold);
+  color: #070A0F;
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(189, 154, 95, 0.3);
+}
+
+.btn-contact-whatsapp .icon-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.btn-contact-whatsapp:hover .icon-arrow {
+  transform: translateX(4px);
+}
+
+/* Card Interativo Instagram */
+.contact-card-interactive {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact-card-interactive:hover {
+  border-color: rgba(189, 154, 95, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(18, 24, 36, 0.06);
+}
+
+.contact-card-action-icon {
+  color: #8C7355;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+.contact-card-interactive:hover .contact-card-action-icon {
+  transform: translate(2px, -2px);
+  color: var(--color-gold);
+}
+
+/* ==========================================================================
+   SEÇÃO 07: FOOTER INSTITUCIONAL
+   ========================================================================== */
+
+.site-footer {
+  position: relative;
+  background-color: #06090F;
+  background: radial-gradient(ellipse 90% 70% at 50% 0%, #0B1424 0%, #06090F 100%);
+  border-top: 1px solid rgba(189, 154, 95, 0.2);
+  padding: 88px 0 38px 0;
+  color: #BAC4CE;
+}
+
+.footer-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Grid das 3 Colunas Principais */
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 56px;
+  margin-bottom: 56px;
+}
+
+/* Coluna 1: Logo & Localização */
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 360px;
+}
+
+.footer-logo-link {
+  display: inline-block;
+  width: fit-content;
+}
+
+.footer-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.4));
+  transition: transform var(--transition-normal);
+}
+
+.footer-logo-link:hover .footer-logo {
+  transform: scale(1.02);
+}
+
+.footer-brand-text {
+  font-family: var(--font-serif);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.015em;
+  margin-top: 2px;
+}
+
+.footer-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: #94A3B8;
+}
+
+.footer-location-icon {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+/* Colunas 2 & 3: Título */
+.footer-col-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  margin-bottom: 22px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-col-title::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background-color: var(--color-gold);
+  opacity: 0.65;
+  margin-top: 6px;
+}
+
+/* Coluna 2: Navegação */
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: #A4B0C2;
+  text-decoration: none;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-nav-link:hover {
+  color: var(--color-gold);
+  transform: translateX(3px);
+}
+
+/* Coluna 3: Contato */
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.footer-contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-contact-label {
+  font-family: var(--font-sans);
+  font-size: 0.71875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  opacity: 0.9;
+}
+
+.footer-contact-value {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: #E2E8F0;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color var(--transition-fast);
+}
+
+.footer-contact-value:hover {
+  color: var(--color-gold);
+}
+
+.footer-contact-icon {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+/* Redes Sociais no Footer */
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(189, 154, 95, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #EDE8DF;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.footer-social-btn:hover {
+  background-color: var(--color-gold);
+  color: #070A0F;
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(189, 154, 95, 0.3);
+}
+
+/* Linha Divisória e Copyright */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.08) 75%, transparent 100%);
+  margin-bottom: 28px;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-copyright {
+  font-family: var(--font-sans);
+  font-size: 0.84375rem;
+  color: #7E8C9D;
+  letter-spacing: 0.015em;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (TABLET & MOBILE)
+   ========================================================================== */
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 0 24px;
+    height: 86px;
+  }
+
+  .nav-list {
+    gap: 22px;
+  }
+
+  .hero-container {
+    padding: 96px 24px 0 24px;
+    gap: 20px;
+  }
+
+  .hero-title {
+    font-size: 3.4rem;
+  }
+
+  .trust-item {
+    padding: 28px 14px;
+  }
+
+  .trust-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+  }
+
+  .about-container {
+    gap: 40px;
+    padding: 0 24px;
+  }
+
+  .about-title {
+    font-size: 3.2rem;
+  }
+
+  .about-logo-emblem {
+    max-width: 320px;
+  }
+
+  /* Áreas de Atuação no Tablet */
+  .practices-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .practices-header {
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  /* Equipe no Tablet */
+  .team-grid {
+    gap: 32px;
+  }
+
+  .team-card-image-wrapper {
+    height: 420px;
+  }
+
+  .team-card-content {
+    padding: 28px 24px 32px 24px;
+  }
+
+  /* Destaque Institucional no Tablet */
+  .statement-section {
+    padding: 115px 0;
+  }
+
+  .statement-container {
+    padding: 0 28px;
+  }
+
+  /* Contato no Tablet */
+  .contact-section {
+    padding: 92px 0 100px 0;
+  }
+
+  .contact-container {
+    gap: 48px;
+    padding: 0 28px;
+  }
+
+  /* Footer no Tablet */
+  .footer-grid {
+    gap: 40px;
+  }
+
+  .footer-container {
+    padding: 0 28px;
+  }
+}
+
+/* Mobile e Tablets Verticais (<= 900px) */
+@media (max-width: 900px) {
+  .site-header {
+    position: sticky;
+    background-color: var(--color-bg-header);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .header-container {
+    height: 78px;
+  }
+
+  .desktop-nav,
+  .header-cta {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  /* Animação do botão hambúrguer para 'X' */
+  .mobile-toggle.active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .mobile-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-toggle.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Hero no Mobile */
+  .hero-container {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    text-align: left;
+    padding-top: 36px;
+    padding-bottom: 0;
+    gap: 24px;
+  }
+
+  .hero-content {
+    padding-bottom: 16px;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 8vw, 3.4rem);
+    line-height: 1.08;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 28px;
+    max-width: 100%;
+  }
+
+  .hero-visual {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-image-wrapper {
+    max-width: 440px;
+    justify-content: center;
+  }
+
+  /* Faixa de confiança em 2 colunas */
+  .trust-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trust-item {
+    border-right: 1px solid var(--color-trust-border);
+    border-bottom: 1px solid var(--color-trust-border);
+  }
+
+  .trust-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .trust-item:nth-child(3),
+  .trust-item:nth-child(4) {
+    border-bottom: none;
+  }
+
+  /* Seção O Escritório no Tablet/Mobile */
+  .about-section {
+    padding: 72px 0 80px 0;
+  }
+
+  .about-backdrop {
+    display: none;
+  }
+
+  .about-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+    padding: 0 24px;
+  }
+
+  .about-visual {
+    min-height: 320px;
+    border-radius: 12px;
+    background: radial-gradient(circle at center, #111622 0%, #070A0F 85%);
+    border: 1px solid rgba(197, 160, 89, 0.1);
+    overflow: hidden;
+  }
+
+  .about-mobile-themis {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .themis-mobile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 80% center;
+    opacity: 0.35;
+    filter: contrast(1.15) brightness(0.85);
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 88%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 88%);
+  }
+
+  .themis-mobile-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(7, 10, 15, 0.25) 0%, rgba(7, 10, 15, 0.82) 100%);
+  }
+
+  .about-logo-emblem {
+    max-width: 300px;
+  }
+
+  /* Áreas de Atuação Mobile/Tablet Vertical */
+  .practices-section {
+    padding: 72px 0 80px 0;
+  }
+
+  .practices-container {
+    padding: 0 24px;
+  }
+
+  .practices-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .practices-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  /* Equipe Mobile/Tablet Vertical */
+  .team-section {
+    padding: 72px 0 80px 0;
+  }
+
+  .team-container {
+    padding: 0 24px;
+  }
+
+  .team-header {
+    margin-bottom: 40px;
+  }
+
+  .team-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .team-card-image-wrapper {
+    height: 440px;
+  }
+
+  /* Destaque Institucional Mobile e Tablet Vertical */
+  .statement-section {
+    padding: 92px 0;
+  }
+
+  .statement-bg-aura {
+    width: min(560px, 92vw);
+    height: 280px;
+  }
+
+  .statement-container {
+    padding: 0 24px;
+  }
+
+  .statement-accent {
+    margin-bottom: 30px;
+  }
+
+  .statement-separator {
+    margin: 28px auto 26px auto;
+  }
+
+  /* Contato Mobile e Tablet Vertical */
+  .contact-section {
+    padding: 72px 0 80px 0;
+  }
+
+  .contact-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    padding: 0 24px;
+  }
+
+  .contact-info {
+    max-width: 100%;
+  }
+
+  .contact-title {
+    font-size: 2.35rem;
+  }
+
+  /* Footer Mobile e Tablet Vertical */
+  .site-footer {
+    padding: 68px 0 32px 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    margin-bottom: 44px;
+  }
+
+  .footer-container {
+    padding: 0 24px;
+  }
+
+  .footer-brand-col {
+    max-width: 100%;
+  }
+}
+
+/* Telas Compactas (<= 480px / 390px) */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 20px;
+    height: 74px;
+  }
+
+  .header-logo {
+    height: 50px;
+    max-width: 195px;
+  }
+
+  .hero-container {
+    padding: 24px 20px 0 20px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .btn-hero {
+    width: 100%;
+  }
+
+  .trust-container {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .trust-item {
+    border-right: none;
+    border-bottom: 1px solid var(--color-trust-border);
+    padding: 24px 16px;
+  }
+
+  .trust-item:last-child {
+    border-bottom: none;
+  }
+
+  /* Seção O Escritório no Celular */
+  .about-section {
+    padding: 56px 0 64px 0;
+  }
+
+  .about-container {
+    padding: 0 20px;
+    gap: 36px;
+  }
+
+  .about-title {
+    font-size: 2.35rem;
+  }
+
+  .btn-outline {
+    width: 100%;
+  }
+
+  .about-visual {
+    min-height: 280px;
+  }
+
+  .about-logo-emblem {
+    max-width: 250px;
+  }
+
+  /* Áreas de Atuação no Celular */
+  .practices-section {
+    padding: 56px 0 64px 0;
+  }
+
+  .practices-container {
+    padding: 0 20px;
+  }
+
+  .practices-title {
+    font-size: 2.25rem;
+  }
+
+  .practice-card {
+    padding: 24px 18px;
+    gap: 16px;
+  }
+
+  .practice-card-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .practice-card-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .practice-card-title {
+    font-size: 1.18rem;
+  }
+
+  .practice-card-desc {
+    font-size: 0.875rem;
+  }
+
+  /* Equipe no Celular */
+  .team-section {
+    padding: 56px 0 64px 0;
+  }
+
+  .team-container {
+    padding: 0 20px;
+  }
+
+  .team-title {
+    font-size: 2.25rem;
+  }
+
+  .team-card-image-wrapper {
+    height: 390px;
+  }
+
+  .team-card-content {
+    padding: 24px 20px 28px 20px;
+  }
+
+  .team-card-name {
+    font-size: 1.5rem;
+  }
+
+  .team-card-bio {
+    font-size: 0.9375rem;
+    line-height: 1.68;
+  }
+
+  /* Destaque Institucional no Celular */
+  .statement-section {
+    padding: 80px 0;
+  }
+
+  .statement-bg-aura {
+    width: 90vw;
+    height: 220px;
+  }
+
+  .statement-container {
+    padding: 0 20px;
+  }
+
+  .statement-title {
+    font-size: 2.35rem;
+    line-height: 1.18;
+  }
+
+  .statement-accent {
+    margin-bottom: 24px;
+    gap: 12px;
+  }
+
+  .statement-accent-line {
+    width: 32px;
+  }
+
+  .statement-separator {
+    width: 44px;
+    margin: 24px auto 22px auto;
+  }
+
+  .statement-text {
+    font-size: 0.9875rem;
+    line-height: 1.72;
+    padding: 0 4px;
+  }
+
+  /* Contato no Celular */
+  .contact-section {
+    padding: 60px 0 72px 0;
+  }
+
+  .contact-container {
+    padding: 0 20px;
+    gap: 32px;
+  }
+
+  .contact-title {
+    font-size: 2.15rem;
+  }
+
+  .contact-card {
+    padding: 18px 18px;
+  }
+
+  .btn-contact-whatsapp {
+    padding: 14px 18px;
+    font-size: 0.9375rem;
+  }
+
+  /* Footer no Celular */
+  .site-footer {
+    padding: 56px 0 28px 0;
+  }
+
+  .footer-container {
+    padding: 0 20px;
+  }
+
+  .footer-grid {
+    gap: 36px;
+    margin-bottom: 36px;
+  }
+
+  .footer-logo {
+    height: 52px;
+  }
+
+  .footer-nav-link {
+    padding: 3px 0;
+  }
+
+  .footer-contact-value {
+    padding: 3px 0;
+  }
+
+  .footer-copyright {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+}
